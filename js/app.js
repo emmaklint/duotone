@@ -40,6 +40,15 @@ function getDuotone(value) {
   return duotone;
 }
 
-function changeColor(yellow) {
-  to = color(254, 204, 2)
+function changeColor(c) {
+  if (c == 'yellow') {
+    to = color(254, 204, 2)
+  } else if (c == 'green') {
+    to = color(0, 200, 83)
+  } else if (c == 'red') {
+    to = color(254, 74, 74);
+  } else if (c == 'blue') {
+    to = color(41, 182, 246);
+  }
+
 }
