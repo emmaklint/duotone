@@ -24,14 +24,3 @@
 .blue {
   background-color: rgb(41, 182, 246);
 }
-
-.test {
-display:inline-block;
-font-family: Raleway, serif;
-font-size: 30px;
-color: #FFFFFF;
-letter-spacing: 0;
-background: -webkit-linear-gradient(right, #FF5252, #26A1ED);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-}
