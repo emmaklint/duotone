@@ -3,16 +3,44 @@
 <head>
 <title>Pepp Duotone</title>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <script src="js/p5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+
 </head>
 <body>
-  <div>
-    <button class="button yellow" type="button" onclick="changeColor('yellow')">Yellow</button>
-    <button class="button red" type="button" onclick="changeColor('red')">Red</button>
+  <div id="app">
+    <div class="d-flex">
+      <div class="flex-row d-flex justify-content-around">
+        <button class="button coralRedToLilac" type="button" onclick="changeColor('coralRedToLilac')">coralRedToLilac</button>
+        <button class="button coralRedToCerulean" type="button" onclick="changeColor('coralRedToCerulean')">coralRedToCerulean</button>
+        <button class="button ceruleanToLilac" type="button" onclick="changeColor('ceruleanToLilac')">ceruleanToLilac</button>
+        <button class="button ceruleanToSeaGreen" type="button" onclick="changeColor('ceruleanToSeaGreen')">ceruleanToSeaGreen</button>
+      </div>
+      <div class="flex-row justify-content-around">
+        <button class="button coralRedToLilac" type="button" onclick="changeColor('coralRedToLilac')">coralRedToLilac</button>
+        <button class="button coralRedToCerulean" type="button" onclick="changeColor('coralRedToCerulean')">coralRedToCerulean</button>
+        <button class="button ceruleanToLilac" type="button" onclick="changeColor('ceruleanToLilac')">ceruleanToLilac</button>
+        <button class="button ceruleanToSeaGreen" type="button" onclick="changeColor('ceruleanToSeaGreen')">ceruleanToSeaGreen</button>
+      </div>
+      <div class="flex-row justify-content-around">
+        <button class="button" type="button" onclick="reverseColor()">Reverse colors</button>
+        <button class="button" type="button" onclick="reset()">Återställ</button>
+
+      </div>
+  </div>
+
+    <!-- <button class="button red" type="button" onclick="changeColor('red')">Red</button>
     <button class="button green" type="button" onclick="changeColor('green')">Green</button>
-    <button class="button blue" type="button" onclick="changeColor('blue')">Blue</button>
+    <button class="button blue" type="button" onclick="changeColor('blue')">Blue</button> -->
   </div>
   <div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="js/app.js"></script>
   </div>
 </body>

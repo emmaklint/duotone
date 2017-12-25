@@ -9,8 +9,27 @@
     font-size: 16px;
 }
 
+.coralRedToLilac {
+  background: linear-gradient(to right, rgb(254, 74, 74), rgb(70, 70, 150))
+}
+
+.coralRedToCerulean {
+  background: linear-gradient(to right, rgb(254, 74, 74), rgb(1, 179, 254))
+}
+
+.ceruleanToLilac {
+  background: linear-gradient(to right, rgb(41, 182, 246), rgb(70, 70, 150))
+}
+
+.ceruleanToSeaGreen {
+  background: linear-gradient(to right, rgb(1, 179, 254), rgb(0, 106, 45))
+}
+
+
+
+
 .yellow {
-  background-color: rgb(254, 204, 2);
+  background: linear-gradient(to right, red, yellow);
 }
 
 .red {

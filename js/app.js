@@ -1,54 +1,104 @@
 var img;  // Declare variable 'img'.
+var gradient = false
 
 function preload() {
-  img = loadImage("img/axel.jpg");
+  img = loadImage("img.jpg");
 }
 function setup() {
   colorMode(RGB)
-  img.resize(600,0)
+  img.resize(1200,0)
   createCanvas(img.width, img.height);
   pixelDensity(1);
-  from = color(70, 70, 150);
-  to = color(254, 74, 74);
+  // from = color(70, 70, 150);
+  // to = color(254, 74, 74);
 }
 
 function draw() {
   image(img, 0, 0);
   loadPixels();
 
-  for(var y = 0; y < height; y++) {
-    for (var x = 0; x < width; x++) {
-      var index = (x + y * width) * 4;
+  if (gradient == true) {
 
-      var gray = (pixels[index] + pixels[index+1] + pixels[index+2]) / 3;
+      for(var y = 0; y < height; y++) {
+        for (var x = 0; x < width; x++) {
+          var index = (x + y * width) * 4;
 
-      var duotone = getDuotone(gray)
-      pixels[index] = duotone.levels[0];
-      pixels[index+1] = duotone.levels[1];
-      pixels[index+2] = duotone.levels[2];
+          var gray = (pixels[index] + pixels[index+1] + pixels[index+2]) / 3;
 
-    }
+          var duotone = getDuotone(gray)
+          pixels[index] = duotone.levels[0];
+          pixels[index+1] = duotone.levels[1];
+          pixels[index+2] = duotone.levels[2];
+
+        }
+      }
+      updatePixels();
   }
   updatePixels();
 }
 
 function getDuotone(value) {
-
   value = value / 255;
   duotone = lerpColor(from, to, value);
 
   return duotone;
 }
 
-function changeColor(c) {
-  if (c == 'yellow') {
-    to = color(254, 204, 2)
-  } else if (c == 'green') {
-    to = color(0, 200, 83)
-  } else if (c == 'red') {
-    to = color(254, 74, 74);
-  } else if (c == 'blue') {
-    to = color(41, 182, 246);
-  }
-
+function reset() {
+  gradient = false
 }
+
+function reverseColor() {
+  var one = to
+  var two = from
+
+  to = two
+  from = one
+}
+
+function changeColor(c) {
+  gradient = true
+  console.log("c: " + c)
+  if (c == 'coralRedToLilac') {
+    to = color(254, 74, 74)
+    from = color(70, 70, 150)
+  } else if (c == 'coralRedToCerulean') {
+    to = color(254, 74, 74)
+    from = color(1, 179, 254)
+  } else if (c == 'ceruleanToLilac') {
+    to = color(1, 179, 254)
+    from = color(70, 70, 150)
+  } else if (c == 'ceruleanToSeaGreen') {
+    to = color(1, 179, 254)
+    from = color(0, 106, 45)
+  }
+}
+
+new Vue({
+  el: '#app',
+  data: {
+    image: ''
+  },
+  methods: {
+    onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length)
+        return;
+      this.createImage(files[0]);
+    },
+    createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = (e) => {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    removeImage: function (e) {
+      this.image = '';
+    }
+
+  }
+})
